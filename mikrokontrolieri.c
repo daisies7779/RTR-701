@@ -1,3 +1,4 @@
+//Lekcijas kods
 #include <msp430.h>
 int main()
 {
