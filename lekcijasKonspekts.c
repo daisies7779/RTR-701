@@ -8,6 +8,7 @@ P1OUT = 0b00000001;
 
 
 #include <msp430.h>
+void delay(void);
 int main()
 {
   WDTCTL = WDTPW + WDTHOLD;
@@ -20,6 +21,37 @@ int main()
   //ar konstanti
   P1DIR |= (BIT6+BIT0); 
   
+  for(;;) {
+  //Iespīdina diodi
+  P1OUT |= BIT0;
+  
+  //aizsture
+  delay();
+  
+  //Izslēdz tiko iespīdināto diodi
+  P1OUT &= ~BIT0;
+  delay();  
+  }
+  
+  //alternatīva iepriekšējam for, kā mirgot plus pieskaita 6 diodi
+  /*
+  for(;;)
+  {
+  delay();  
+  P1OUT ^= (BIT0+BIT6);  
+  }
+  
+  */
   
 
+
+  
+
+}
+
+void delay()
+{
+  volatile unsigned int n;
+  for(n=0;n<60000;n++)
+  {;}
 }
