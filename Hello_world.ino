@@ -10,6 +10,9 @@ int main()
   P1DIR |= 0b11111111; 
  //pasludinam, ka visi pini tagad nav ieslēgti
   P1OUT &= ~0xFF; 
+  
+  //1.5 aktivitāte
+  //P2DIR &= ~0b00001000; 
  
  for( ; ; )
  {
@@ -39,6 +42,19 @@ int main()
   //kompaktākā versija
   // P1OUT ^= 0b00000001;
   // for(i = 30000; i>1;i--);   
+
+   */
+   
+   //1.5aktivitate
+   /*
+   if ((P2IN&0b00001000) == 0b00001000)
+ {
+ P1OUT |= 0b10000000;//ieslēgt 7.led
+ }
+ else
+ {
+ P1OUT &= ~0b10000000;//izslēgt 7.led
+ } 
 
    */
    
