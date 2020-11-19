@@ -50,3 +50,6 @@ int main()
 //9lapaspuses uzdevumam kods
  P2SEL &= ~BIT7; //to use 2.7, 2.6 pins
  P2SEL &= ~BIT6; //to use 2.7, 2.6 pins
+
+//likt beigās pēc aiztures
+if(j==16),j=0;
