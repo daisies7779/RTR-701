@@ -1,9 +1,12 @@
 #include<msp430.h>
-
-int main()
+void delay(void);
+int main(void)
 {
   WDTCTL = WDTPW + WDTHOLD;
   P2DIR |= 0xF7;
+
+   P2SEL &= ~BIT7; //to use 2.7, 2.6 pins
+   P2SEL &= ~BIT6; //to use 2.7, 2.6 pins
 
   volatile unsigned char j = 0;
   for(;;)
@@ -78,4 +81,11 @@ int main()
       P2OUT |= 0xD7;
     }
     delay();
-   
+  }
+}
+   void delay(void)
+//our written delay function
+{
+volatile unsigned int n;
+for(n=0;n<60000;n++);
+}
