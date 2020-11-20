@@ -135,6 +135,9 @@ int main(void)
       P2OUT |= 0xE2;
     }
     delay();
+ j++;
+    if(j==16)
+      j=0;
 
 
 
