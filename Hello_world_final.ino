@@ -11,7 +11,7 @@ int main()
  //pasludinam, ka visi pini tagad nav ieslēgti
   P1OUT &= ~0xFF; 
   
-  //1.5 aktivitāte
+  //1.5 aktivitāte define pogas izeju
   P2DIR &= ~0b00001000; 
   
   for( ; ; )
@@ -25,7 +25,7 @@ int main()
    
    //1.3.aktivitāte
    // Iededzināt P1.1. un P1.0
-    P1OUT |= 0b00000011; 
+    //P1OUT |= 0b00000011; 
    
    
    //1.4.aktivitāte
@@ -46,6 +46,7 @@ int main()
    
    //1.5aktivitate skat modificéto versiju 1.6.
    /*
+   
    if ((P2IN&0b00001000) == 0b00001000)
  {
   P1OUT |= 0b10000000;//ieslēgt 7.led
@@ -60,6 +61,18 @@ int main()
  //1.6.aktivitate
  //POGA nav nospiesta, LED7 un LED6 spid
  //POGA ir nospiesta LED7 un LED 6 nespid
+  //for(i=30000;i>1;i--);//aizture
+  /*
+    if ((P2IN&0b00001000) == 0b00001000)
+ {
+  P1OUT &= ~0b11000101;//izsleg 6. un 7.led
+
+ }
+ else
+ {
+  P1OUT |= 0b11000000;//ieslegt 6. un 7.led
+ }
+ */
  /*
  for(i=30000;i>1;i--);//aizture
     if ((P2IN&0b00001000) == 0b00001000)
@@ -74,19 +87,21 @@ int main()
 */
 
  //1.7.aktivitate
- //POGA nav nospiesta, LED7 un LED6 spid
- //POGA ir nospiesta LED7 un LED 6 nespid
+ //POGA nav nospiesta, LED7 un LED6 spid bet LED5 nespid
+ //POGA ir nospiesta LED7 un LED 6 nespid, bet LED5 spid
  
- for(i=30000;i>1;i--);//aizture
+ //for(i=30000;i>1;i--);//aizture
     if ((P2IN&0b00001000) == 0b00001000)
  {
   P1OUT &= ~0b11000000;//izsleg 6. un 7.led
+ 
   P1OUT |= 0b00100000; //iesledz 5.lde
 
  }
  else
  {
   P1OUT |= 0b11000000;//ieslegt 6. un 7.led
+   
   P1OUT &= ~0b00100000;//izsleg 5.led
  } 
    
