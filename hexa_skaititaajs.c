@@ -8,6 +8,11 @@ int main(void)
    P2SEL &= ~BIT7; //to use 2.7, 2.6 pins
    P2SEL &= ~BIT6; //to use 2.7, 2.6 pins
 
+    //Vizsledzam LED lampinjas
+  //P1DIR |= 0b11111111; 
+ //pasludinam, ka visi pini tagad nav ieslēgti
+ // P1OUT &= ~0xFF; 
+
   volatile unsigned char j = 0;
   for(;;)
   {
@@ -81,6 +86,59 @@ int main(void)
       P2OUT |= 0xD7;
     }
     delay();
+
+    P2OUT &= ~0xF7;
+    j++;
+    if(j == 10)
+    {
+      P2OUT |= 0xE7;
+    }
+    delay();
+
+    P2OUT &= ~0xF7;
+    j++;
+    if(j == 11)
+    {
+      P2OUT |= 0xB6;
+    }
+    delay();
+
+    P2OUT &= ~0xF7;
+    j++;
+    if(j == 12)
+    {
+      P2OUT |= 0xF0;
+    }
+    delay();
+
+
+    P2OUT &= ~0xF7;
+    j++;
+    if(j == 13)
+    {
+      P2OUT |= 0x37;
+    }
+    delay();
+
+    P2OUT &= ~0xF7;
+    j++;
+    if(j == 14)
+    {
+      P2OUT |= 0xF2;
+    }
+    delay();
+
+    P2OUT &= ~0xF7;
+    j++;
+    if(j == 15)
+    {
+      P2OUT |= 0xE2;
+    }
+    delay();
+
+
+
+    
   }
 }
    void delay(void)
